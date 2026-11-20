@@ -1,0 +1,72 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+@import "leaflet/dist/leaflet.css";
+
+:root {
+  --bg-canvas: #F8FAFC;
+  --bg-surface: #FFFFFF;
+  --bg-elevated: #F1F5F9;
+  --border-subtle: rgba(15, 23, 42, 0.10);
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --accent-cyan: #0891B2;
+  --status-emerald: #059669;
+  --status-amber: #D97706;
+  --status-crimson: #DC2626;
+}
+
+.dark {
+  --bg-canvas: #0B1120;
+  --bg-surface: #111827;
+  --bg-elevated: #1E293B;
+  --border-subtle: rgba(148, 163, 184, 0.14);
+  --text-primary: #F1F5F9;
+  --text-secondary: #94A3B8;
+  --accent-cyan: #06B6D4;
+  --status-emerald: #10B981;
+  --status-amber: #F59E0B;
+  --status-crimson: #EF4444;
+}
+
+@layer base {
+  body {
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  .font-mono, code, pre {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Clean custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.25);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.4);
+}
+
+/* Leaflet map container integration */
+.leaflet-container {
+  font-family: 'DM Sans', sans-serif;
+  background: #0B1120;
+}
+html:not(.dark) .leaflet-container {
+  background: #E2E8F0;
+}

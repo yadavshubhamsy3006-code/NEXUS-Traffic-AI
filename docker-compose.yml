@@ -1,0 +1,16 @@
+services:
+  nexus-traffic-ai:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - NODE_ENV=production
+      - DATABASE_PATH=/data/nexus_traffic.db
+      - SUPABASE_URL=${SUPABASE_URL:-}
+      - SUPABASE_ANON_KEY=${SUPABASE_ANON_KEY:-}
+    volumes:
+      - nexus_data:/data
+
+volumes:
+  nexus_data:
